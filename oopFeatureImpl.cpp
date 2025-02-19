@@ -21,13 +21,24 @@ class employee {
         strcpy(designation, desig);
         salary = sal;
     }
-    float getSalary();
-    void setSalary(float);
-    void calculateSalary();
-    char* getEmpName();
-    void setEmpName(char*);
-    char* getEmpDesignation();
-    void setEmpDesignation(char*);
+    float getSalary() {
+        return salary;
+    }
+    void setSalary(float sal) {
+        salary = sal;
+    }
+    char* getEmpName() {
+        return name;
+    }
+    void setEmpName(char* empname) {
+        strcpy(name, empname);
+    }
+    char* getEmpDesignation() {
+        return designation;
+    }
+    void setEmpDesignation(char* desig) {
+        strcpy(designation, desig);
+    }
     virtual void displayEmployeeInfo() {
         cout << "Name: " << name << endl;
         cout << "designation: " << designation << endl;
@@ -44,8 +55,12 @@ class department:public employee {
         department(const char* dep,const char* name,const char* desig, float sal): employee(name, desig, sal) {
             strcpy(dept, dep);
         }
-        void setDept(const char*);
-        char* getDept();
+        void setDept(const char* dep) {
+            strcpy(dept, dep);
+        }
+        char* getDept() {
+            return dept;
+        }
         //Polymorphism achieved by calling displayEmployeeInfo() using department and employee class
         void displayEmployeeInfo() override {
             employee::displayEmployeeInfo();
